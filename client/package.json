@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-client",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "npx vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0",
+    "@vitejs/plugin-react": "^4.7.0"
+  }
+}
