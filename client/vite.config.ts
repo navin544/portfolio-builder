@@ -18,7 +18,13 @@ export default defineConfig({
   // DO NOT build outside the project
 
   build: {
-    outDir: "dist",       // ← relative to client/
-    emptyOutDir: true,
-  },
+  rollupOptions: {
+    output: {
+      manualChunks: {
+        react: ["react", "react-dom"],
+        ui: ["@radix-ui/react-dialog", "@radix-ui/react-tabs"]
+      }
+    }
+  }
+},
 });
