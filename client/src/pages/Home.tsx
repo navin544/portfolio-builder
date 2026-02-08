@@ -23,6 +23,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Navbar } from "@/components/Navbar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { useProfile, useSkills, useProjects, useExperience, useContact } from "@/hooks/use-portfolio";
+import profileImg from "./Naveen_Chaurasia.png";
 
 // Animations
 const fadeInUp = {
@@ -92,12 +93,12 @@ export default function Home() {
                 Hello, I'm
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-foreground">
-                {profile.name}
+                Naveen Chaurasia
               </h1>
             </motion.div>
 
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-              {profile.title} based in San Francisco. {profile.bio}
+              Aspiring Computer Science & Engineering student with internship and project experience in data analysis, application development, and cyber security fundamentals. Proficient in Java, Python, and web technologies, seeking an entry-level role to build industry experience.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -150,13 +151,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary to-purple-500 rounded-2xl transform rotate-3 group-hover:rotate-2 transition-transform duration-300 opacity-20" />
               {/* Profile Image with fallback */}
               <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5] bg-muted">
-                {profile.avatarUrl ? (
-                  <img src={profile.avatarUrl} alt={profile.name} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-muted text-muted-foreground">
-                    No image available
-                  </div>
-                )}
+                <img src={profileImg} alt={profile.name} className="w-full h-full object-cover" />
               </div>
             </motion.div>
 
@@ -173,9 +168,13 @@ export default function Home() {
               </div>
               
               <div className="pt-4">
-                <Button className="gap-2" onClick={() => window.open(profile.resumeUrl || '#', '_blank')}>
+                <a
+                  href={profile.resumeUrl || '/resume.pdf'}
+                  download
+                  className="inline-flex items-center gap-2 rounded-full px-8 text-lg font-medium h-14 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all bg-primary text-white"
+                >
                   <Download className="w-4 h-4" /> Download Resume
-                </Button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -442,8 +441,19 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="py-8 text-center text-muted-foreground border-t border-border/50">
-        <div className="container mx-auto px-6">
-          <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
+        <div className="container mx-auto px-6 space-y-3">
+          <div className="flex items-center justify-center gap-6">
+            <a href="https://github.com/navin544" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <Github className="w-5 h-5" />
+            </a>
+            <a href="https://www.linkedin.com/in/naveen-kumar-9176b51a7" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
+
+          <div>
+            <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
