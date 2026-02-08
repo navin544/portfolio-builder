@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "routes": [
+    {
+      "src": "/resume.pdf",
+      "dest": "/dist/public/resume.pdf"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/public/index.html"
+    }
+  ]
+}
